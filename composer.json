@@ -12,14 +12,27 @@
   "description": "CodeGenerator for swoft framework",
   "license": "Apache-2.0",
   "require": {
+    "swoft/framework": "2.0.10",
     "text/template": "~2.6"
   },
   "autoload": {
     "psr-4": {
-      "swoft-CodeGenerator\\Devtool\\": "src/"
+      "Lingxiao\\Swoft\\CodeGenerator\\": "src/"
     }
   },
   "require-dev": {
+    "swoft/swoole-ide-helper": "dev-master",
     "phpunit/phpunit": "^7.5"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Lingxiao\\Swoft\\CodeGenerator\\Test\\Unit\\": "test/unit/",
+      "Lingxiao\\Swoft\\CodeGenerator\\Test\\Testing\\": "test/testing/",
+      "SwoftTest\\Unit\\": "vendor/swoft/framework/test/unit/",
+      "SwoftTest\\Testing\\": "vendor/swoft/framework/test/testing/"
+    }
+  },
+  "scripts": {
+    "test": "./vendor/bin/phpunit -c phpunit.xml"
   }
 }

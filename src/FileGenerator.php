@@ -8,7 +8,7 @@
  * @license  https://github.com/swoft-cloud/swoft/blob/master/LICENSE
  */
 
-namespace Swoft\Devtool;
+namespace Lingxiao\Swoft\CodeGenerator;
 
 use InvalidArgumentException;
 use Leuffen\TextTemplate\TemplateParsingException;

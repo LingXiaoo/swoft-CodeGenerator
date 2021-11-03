@@ -8,7 +8,7 @@
  * @license  https://github.com/swoft-cloud/swoft/blob/master/LICENSE
  */
 
-namespace Swoft\Devtool\Bootstrap\Listener;
+namespace Lingxiao\Swoft\CodeGenerator\Bootstrap\Listener;
 
 use Swoft\Config\Annotation\Mapping\Config;
 use Swoft\Event\Annotation\Mapping\Listener;

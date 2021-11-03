@@ -8,7 +8,7 @@
  * @license  https://github.com/swoft-cloud/swoft/blob/master/LICENSE
  */
 
-namespace Swoft\Devtool\Helper;
+namespace Lingxiao\Swoft\CodeGenerator\Helper;
 
 use function is_file;
 use function file_get_contents;

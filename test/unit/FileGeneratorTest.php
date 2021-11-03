@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace SwoftTest\Devtool\Unit;
+namespace Lingxiao\Swoft\CodeGenerator\test\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Swoft\Devtool\FileGenerator;
+use Lingxiao\Swoft\CodeGenerator\FileGenerator;
 
 /**
  * Class FileGeneratorTest

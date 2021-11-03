@@ -8,7 +8,7 @@
  * @license  https://github.com/swoft-cloud/swoft/blob/master/LICENSE
  */
 
-namespace Swoft\Devtool\Listener;
+namespace Lingxiao\Swoft\CodeGenerator\Listener;
 
 use Swoft\Bean\BeanFactory;
 use Swoft\Config\Annotation\Mapping\Config;

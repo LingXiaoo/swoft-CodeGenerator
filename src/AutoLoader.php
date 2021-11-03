@@ -8,7 +8,7 @@
  * @license  https://github.com/swoft-cloud/swoft/blob/master/LICENSE
  */
 
-namespace Swoft\Devtool;
+namespace Lingxiao\Swoft\CodeGenerator;
 
 use Swoft;
 use Swoft\Helper\ComposerJSON;

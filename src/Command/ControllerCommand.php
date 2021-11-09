@@ -10,12 +10,12 @@
 
 namespace Lingxiao\Swoft\CodeGenerator\Command;
 
+use Lingxiao\Swoft\CodeGenerator\Model\Logic\ControllerLogic;
 use Swoft\Bean\Annotation\Mapping\Inject;
 use Swoft\Console\Annotation\Mapping\Command;
 use Swoft\Console\Annotation\Mapping\CommandArgument;
 use Swoft\Console\Annotation\Mapping\CommandMapping;
 use Swoft\Console\Annotation\Mapping\CommandOption;
-use Swoft\Devtool\Model\Logic\ControllerLogic;
 use Throwable;
 use function input;
 

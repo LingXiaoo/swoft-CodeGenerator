@@ -1,0 +1,16 @@
+<?php declare(strict_types=1);
+{include file="file-header.stub"}
+namespace {= namespace};
+
+use App\Services\{= service}\ServiceImp\{= classNameImp};
+use Swoft\Bean\Annotation\Mapping\Bean;
+
+/**
+ * Class {= className}
+ * @package {= namespace}
+ * @Bean("{= className}")
+ */
+class {= className} implements {= classNameImp}
+{
+
+}

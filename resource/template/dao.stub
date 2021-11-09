@@ -1,0 +1,30 @@
+<?php declare(strict_types=1);
+{include file="file-header.stub"}
+namespace {= namespace};
+
+use Swoft\Bean\Annotation\Mapping\Bean;
+
+/**
+ * Class {= className}
+ * @package {= namespace}
+ * @Bean("{= className}")
+ */
+class {= className}
+{
+        /**
+         * @throws DbException
+         */
+        private function query(): Builder
+        {
+
+        }
+
+        /**
+         * @return Builder
+         */
+        protected  function queryBuild($params = []): Builder
+        {
+
+        }
+
+}

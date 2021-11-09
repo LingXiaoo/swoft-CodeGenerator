@@ -1,0 +1,15 @@
+<?php declare(strict_types=1);
+{include file="file-header.stub"}
+namespace {= namespace};
+
+use Swoft\Bean\Annotation\Mapping\Bean;
+
+/**
+ * Class {= className}
+ * @package {= namespace}
+ * @Bean("{= className}")
+ */
+interface {= className}
+{
+
+}

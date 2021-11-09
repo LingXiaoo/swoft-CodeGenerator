@@ -1,0 +1,43 @@
+<?php declare(strict_types=1);
+{include file="file-header.stub"}
+namespace {= namespace};
+
+use App\Library\ObjectToArray\ArrToObject;
+use App\Model\Entity\{= entityName};
+use ReflectionException;
+use Swoft\Bean\Annotation\Mapping\Bean;
+use Swoft\Bean\BeanFactory;
+
+/**
+ * Class {= className}
+ * @package {= namespace}
+ * @Bean("{= className}")
+ */
+class {= className}
+{
+    /**
+     * @param {= entityName} ${= entityName}
+     * @param array $data
+     * @return {= entityName}
+     */
+    public function attributesUpdateData({= entityName} ${= entityName},array $data): {= entityName}
+    {
+        /** @var ArrToObject  $arrayToObject */
+        $arrayToObject = BeanFactory::getBean(ArrToObject::class);
+        $arrayToObject->arrayToModel($adActivity,$data);
+        return ${= entityName};
+    }
+
+    /**
+     * 保存数据转换成对象
+     * @param array $data
+     * @return {= entityName}|object
+     * @throws ReflectionException
+     */
+    public function attributesSaveData(array $data)
+    {
+        /** @var ArrToObject $arrayToObject */
+        $arrayToObject = BeanFactory::getBean(ArrToObject::class);
+        return $arrayToObject->arrayToObj({= entityName}::class, $data);
+    }
+}

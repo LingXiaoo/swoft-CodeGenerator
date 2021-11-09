@@ -35,12 +35,6 @@ use function ucfirst;
 class ControllerLogic
 {
 
-
-    /**
-     * @var bool
-     */
-    private $readyGenerateId = false;
-
     /**
      * Generate entity
      *
@@ -51,11 +45,8 @@ class ControllerLogic
      */
     public function create(array $params): void
     {
-        $controllerName = 'test';
-        $path = '@app/Http/Controller';
-        $tplDir = '@codeGenerator/resource/template';
+        list($controllerName,$path,$tplDir) = $params;
         $this->generateController($controllerName,$path,$tplDir);
-
     }
 
     /**
@@ -76,7 +67,7 @@ class ControllerLogic
     ): void {
         $file   = alias($path);
         $tplDir = alias($tplDir);
-    var_dump($file);
+        $controllerName = ucfirst($controllerName.'Controller');
         $config       = [
             'tplFilename' => 'controller',
             'tplDir'      => $tplDir,
@@ -92,7 +83,7 @@ class ControllerLogic
                 throw new RuntimeException(sprintf('Directory "%s" was not created', $file));
             }
         }
-
+        $file .= sprintf('/%s.php', $controllerName);
         $gen  = new FileGenerator($config);
 
         $fileExists = file_exists($file);
@@ -111,8 +102,8 @@ class ControllerLogic
             return;
         }
         $data = [
-            'className'      => '$methodStr',
-            'namespace'    => '',
+            'className'      => $controllerName,
+            'namespace'    => $this->getNameSpace($path),
             'prefix' => '/',
         ];
         if ($gen->renderAs($file, $data)) {

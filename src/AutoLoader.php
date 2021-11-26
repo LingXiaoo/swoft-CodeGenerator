@@ -30,7 +30,7 @@ class AutoLoader extends SwoftComponent
     {
         parent::__construct();
 
-        Swoft::setAlias('@codeGenerator', dirname(__DIR__, 2));
+        Swoft::setAlias('@codeGenerator', dirname(__DIR__, 1));
     }
 
     /**

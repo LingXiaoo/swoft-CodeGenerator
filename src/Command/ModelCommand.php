@@ -47,7 +47,7 @@ class ModelCommand
     {
         $name        = input()->get('name', input()->getOpt('name'));
         $path      = input()->get('path', '@app/Model');
-        $tplDir        = input()->get('tplDir', '@codeGenerator/swoft-CodeGenerator/resource/template');
+        $tplDir        = input()->get('tplDir', '@codeGenerator/resource/template');
         try {
             $this->logic->create([
                 (string )$name,

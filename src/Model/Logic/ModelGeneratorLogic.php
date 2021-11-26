@@ -165,7 +165,7 @@ class ModelGeneratorLogic
     {
         $path = '@app/Model/Traits';
         $file   = alias($path);
-        $tplDir = alias('@codeGenerator/swoft-CodeGenerator/resource/template');
+        $tplDir = alias('@codeGenerator/resource/template');
         $name = ucfirst('CreateLogic');
         $config       = [
             'tplFilename' => 'createLogic',
@@ -205,7 +205,7 @@ class ModelGeneratorLogic
     {
         $path = '@app/Library/ObjectToArray';
         $file   = alias($path);
-        $tplDir = alias('@codeGenerator/swoft-CodeGenerator/resource/template');
+        $tplDir = alias('@codeGenerator/resource/template');
         $name = ucfirst('arrToObject');
         $config       = [
             'tplFilename' => 'arrToObject',

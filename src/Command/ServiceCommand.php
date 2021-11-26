@@ -47,7 +47,7 @@ class ServiceCommand
     {
         $name        = input()->get('name', input()->getOpt('name'));
         $service      = input()->get('service', 'Directory');
-        $tplDir        = input()->get('tplDir', '@codeGenerator/swoft-CodeGenerator/resource/template');
+        $tplDir        = input()->get('tplDir', '@codeGenerator/resource/template');
         try {
             $this->logic->create([
                 (string )$name,

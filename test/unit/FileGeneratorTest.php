@@ -40,7 +40,7 @@ class FileGeneratorTest extends TestCase
         $ControllerLogic = BeanFactory::getBean(ControllerGeneratorLogic::class);
         $name = 'name';
         $path = '@app/Http/Controller';
-        $tplDir  = '@codeGenerator/swoft-CodeGenerator/resource/template';
+        $tplDir  = '@codeGenerator/resource/template';
         $ControllerLogic->create([
             (string )$name,
             (string )$path,
@@ -52,7 +52,7 @@ class FileGeneratorTest extends TestCase
         $ServiceLogic = BeanFactory::getBean(ServiceGeneratorLogic::class);
         $name = 'adfa';
         $path = 'Shop';
-        $tplDir  = '@codeGenerator/swoft-CodeGenerator/resource/template';
+        $tplDir  = '@codeGenerator/resource/template';
         $ServiceLogic->create([
             (string )$name,
             (string )$path,
@@ -64,7 +64,7 @@ class FileGeneratorTest extends TestCase
         $ModelLogic = BeanFactory::getBean(ModelGeneratorLogic::class);
         $name = 'skljl';
         $path = '@app/Model';
-        $tplDir  = '@codeGenerator/swoft-CodeGenerator/resource/template';
+        $tplDir  = '@codeGenerator/resource/template';
         $ModelLogic->create([
             (string )$name,
             (string )$path,

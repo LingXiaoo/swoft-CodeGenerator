@@ -16,23 +16,17 @@ use Lingxiao\Swoft\CodeGenerator\Helper\ConsoleHelper;
 use RuntimeException;
 use Swoft\Bean\Annotation\Mapping\Bean;
 use function alias;
-use function array_filter;
-use function implode;
-use function in_array;
 use function is_dir;
 use function output;
-use function rtrim;
 use function sprintf;
 use function str_replace;
-use function strpos;
-use function trim;
 use function ucfirst;
 
 /**
  * EntityLogic
  * @Bean()
  */
-class ControllerLogic
+class ControllerGeneratorLogic
 {
 
     /**

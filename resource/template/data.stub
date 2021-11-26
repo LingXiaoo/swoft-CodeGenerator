@@ -24,7 +24,7 @@ class {= className}
     {
         /** @var ArrToObject  $arrayToObject */
         $arrayToObject = BeanFactory::getBean(ArrToObject::class);
-        $arrayToObject->arrayToModel($adActivity,$data);
+        $arrayToObject->arrayToModel(${= entityName},$data);
         return ${= entityName};
     }
 

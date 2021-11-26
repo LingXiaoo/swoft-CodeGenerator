@@ -1,0 +1,102 @@
+<?php
+/***
+ *  数组转换成entity
+ */
+namespace App\Library\ObjectToArray;
+
+
+use ReflectionClass;
+use ReflectionException;
+use Swoft\Db\Eloquent\Model;
+use Swoft\Bean\Annotation\Mapping\Bean;
+
+/**
+ * Class ArrToObject
+ * @package App\Library\ObjectToArray
+ * @since 2.0
+ * @Bean()
+ */
+class ArrToObject
+{
+    /**
+     * @param $object
+     * @param array $arr
+     * @return object
+     * @throws ReflectionException
+     */
+    public function arrayToObj($object, array $arr): object
+    {
+        if (class_exists($object)){
+            $classObj = new ReflectionClass($object);
+            $methods = $classObj->getMethods(\ReflectionMethod::IS_PUBLIC);
+            $classInstance = $classObj->newInstance();
+            $jsonMap = [];
+            foreach ($arr as $k => $v){
+                $filterName =$this->convertUnderline($k);
+                $jsonMap[$filterName] = $v;
+            }
+            foreach ($methods as $method){
+                if(preg_match("/^set(\w+)/",$method->getName(),$matches)){
+                    $this->invokeSetterMethod($matches[1],$classObj,$jsonMap,$classInstance);
+                }
+            }
+            return $classInstance;
+        }
+
+        return (object)array();
+    }
+
+    /**
+     * 数组对象model
+     * @param $model
+     * @param array $array
+     */
+    public function arrayToModel(&$model ,array $array)
+    {
+        if ($model instanceof Model){
+            foreach ($array as $k => $v){
+                $filterName =ucfirst($this->convertUnderline($k));
+                $method = "set".$filterName;
+                if (method_exists($model,$method)){
+                    $model->$method($v);
+                }
+            }
+        }
+    }
+
+    /**
+     * @param $name
+     * @param ReflectionClass $classObj
+     * @param $jsonMap
+     * @param $classInstance
+     * @throws ReflectionException
+     */
+    public function invokeSetterMethod($name, ReflectionClass $classObj, $jsonMap, &$classInstance)
+    {
+
+//        $filterName = strtolower(preg_replace("/(?<=[a-z])([A-Z])/","_$1",$name));
+        $filterName = lcfirst($name);
+        $props = $classObj->getProperties(\ReflectionProperty::IS_PRIVATE);
+        foreach ($props as $prop){
+            if ($prop->getName()== $filterName){
+                $method = $classObj->getMethod("set".$name);
+                $args = $method->getParameters();
+                if (count($args) && isset($jsonMap[$filterName])){
+                    $method->invoke($classInstance,$jsonMap[$filterName]);
+                }
+            }
+        }
+    }
+
+    /**
+     *  下划线转成驼峰方式
+     * @param $str
+     * @return string|string[]|null
+     */
+    public function convertUnderline($str)
+    {
+        return preg_replace_callback('/([-_]+([a-z]{1}))/i', function ($matches) {
+            return strtoupper($matches[2]);
+        }, $str);
+    }
+}

@@ -1,5 +1,7 @@
 <?php
 // vendor at component dir
+use SwoftTest\Testing\TestApplication;
+
 if (file_exists(dirname(__DIR__) . '/vendor/autoload.php')) {
     require dirname(__DIR__) . '/vendor/autoload.php';
 } elseif (file_exists(dirname(__DIR__, 3) . '/vendor/autoload.php')) {
@@ -29,3 +31,7 @@ if (file_exists(dirname(__DIR__) . '/vendor/autoload.php')) {
 } else {
     exit('Please run "composer install" to install the dependencies' . PHP_EOL);
 }
+
+
+$app = new TestApplication(__DIR__);
+$app->run();

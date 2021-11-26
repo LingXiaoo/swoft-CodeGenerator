@@ -10,7 +10,7 @@
 
 namespace Lingxiao\Swoft\CodeGenerator\Command;
 
-use Lingxiao\Swoft\CodeGenerator\Model\Logic\ControllerGeneratorLogic;
+use Lingxiao\Swoft\CodeGenerator\Model\Logic\ServiceGeneratorLogic;
 use Swoft\Bean\Annotation\Mapping\Inject;
 use Swoft\Console\Annotation\Mapping\Command;
 use Swoft\Console\Annotation\Mapping\CommandArgument;
@@ -25,12 +25,12 @@ use function input;
  * @Command()
  * @since 2.0
  */
-class ControllerCommand
+class ServiceCommand
 {
     /**
      * @Inject()
      *
-     * @var ControllerGeneratorLogic
+     * @var ServiceGeneratorLogic
      */
     private $logic;
 
@@ -46,12 +46,12 @@ class ControllerCommand
     public function create(): void
     {
         $name        = input()->get('name', input()->getOpt('name'));
-        $path        = input()->get('path', '@app/Http/Controller');
+        $service      = input()->get('service', 'Directory');
         $tplDir        = input()->get('tplDir', '@codeGenerator/swoft-CodeGenerator/resource/template');
         try {
             $this->logic->create([
                 (string )$name,
-                (string )$path,
+                (string )$service,
                 (string )$tplDir,
             ]);
         } catch (Throwable $exception) {

@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Model\Traits;
+
+use App\Exception\ApiException;
+use Swoft\Log\Helper\Log;
+
+/**
+ * 保存
+ */
+trait CreateLogic
+{
+    /**
+     *  保存数据
+     * @param array $data
+     * @return object|null
+     * @throws ApiException
+     */
+    public function create(array $data):?object
+    {
+        if (!property_exists($this,"dataObject")){
+            throw new ApiException("该未定义dataObject属性",500);
+        }
+        $object = $this->dataObject->attributesSaveData($data);
+        if ($object->save() == false){
+            Log::error("保存数据异常:".__CLASS__,$data);
+            throw new ApiException("保存失败",500);
+        }
+        return $object;
+    }
+}

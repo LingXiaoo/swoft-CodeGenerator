@@ -8,17 +8,13 @@
  * @license  https://github.com/swoft-cloud/swoft/blob/master/LICENSE
  */
 
-namespace Swoft\Devtool\Common;
-
-use Swoole\Coroutine\Client;
-
-/**
- * Class DevTcpClient
- */
-class DevTcpClient
-{
-    /**
-     * @var Client
-     */
-    private $client;
-}
+return [
+    'config' => [
+        'path' => __DIR__ . '/config',
+    ],
+    'logger'            => [
+        'flushRequest' => false,
+        'enable'       => false,
+        'json'         => false,
+    ]
+];

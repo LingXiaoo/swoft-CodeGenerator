@@ -2,7 +2,10 @@
 {include file="file-header.stub"}
 namespace {= namespace};
 
+use App\Model\Entity\{= entityName};
+use Swoft\Db\Eloquent\Builder;
 use Swoft\Bean\Annotation\Mapping\Bean;
+
 
 /**
  * Class {= className}
@@ -11,20 +14,21 @@ use Swoft\Bean\Annotation\Mapping\Bean;
  */
 class {= className}
 {
-        /**
-         * @throws DbException
-         */
-        private function query(): Builder
-        {
+    /**
+     * @throws DbException
+     */
+    private function query(): Builder
+    {
+        return {= entityName}::query();
+    }
 
-        }
-
-        /**
-         * @return Builder
-         */
-        protected  function queryBuild($params = []): Builder
-        {
-
-        }
+    /**
+     * @return Builder
+     */
+    protected  function queryBuild($params = []): Builder
+    {
+        $query = $this->query();
+        return $query;
+    }
 
 }

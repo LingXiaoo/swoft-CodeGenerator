@@ -2,7 +2,8 @@
 {include file="file-header.stub"}
 namespace {= namespace};
 
-use App\Model\Traits\Dao\CreateLogic;
+use App\Model\Traits\CreateLogic;
+use App\Model\Data\{= dataName};
 use Swoft\Bean\Annotation\Mapping\Bean;
 use Swoft\Bean\Annotation\Mapping\Inject;
 
@@ -17,7 +18,7 @@ class {= className}
 
     /**
      * @Inject()
-     * @var ActivityData
+     * @var {= dataName}
      */
     protected $dataObject;
 

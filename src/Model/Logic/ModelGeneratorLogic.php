@@ -60,6 +60,7 @@ class ModelGeneratorLogic
         $logicTemplateData = [
             'className'      => $this->logicName,
             'service'      => $this->logicName,
+            'dataName'      => $this->dataName,
             'namespace'    => $this->getNameSpace($this->logicPath),
             'prefix' => '/',
         ];
